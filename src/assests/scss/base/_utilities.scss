@@ -1,4 +1,4 @@
-@import './abstract/variables';
+@import '../abstract/variables';
 
 .h {
 	@include respond-min(sm-phone) {
