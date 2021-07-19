@@ -1,21 +1,52 @@
-@import '../abstract/variables';
+.file-input {
+	.dropzone {
+		background-color: transparent;
+		border: 1px solid;
+		border-radius: 10px;
+		padding: 10px;
 
-.btn-3d {
-	&-primary {
-		background: transparent
-			linear-gradient(90deg, $color-primary-dark 0%, $color-primary 100%) 0% 0%
-			no-repeat padding-box;
-		transition: 0.3s all;
+		&:focus {
+			outline: none;
+		}
+	}
 
-		&:hover {
-			background: transparent
-				linear-gradient(90deg, $color-primary-dark 0%, $color-primary 100%) 0%
-				0% no-repeat padding-box;
-			transition: 0.3s all;
+	i {
+		color: #49525f;
+	}
+
+	.thumbs-container {
+		img {
+			border-radius: 10px;
+			height: 100%;
+			object-fit: cover;
 		}
 
-		&:active {
-			background-color: $color-primary;
+		.btn-sm {
+			padding: 0.25rem 0.5rem;
 		}
 	}
 }
+
+.not-show-iconpreview {
+	.thumbs-container {
+		margin-top: 4px;
+
+		.thumb--document {
+			height: auto;
+			margin-bottom: 0;
+			margin-right: 0;
+
+			.thumb--document-name {
+				font-size: 14px;
+				margin-top: 0 !important;
+			}
+		}
+	}
+}
+
+.form-control {
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
