@@ -88,7 +88,6 @@ function SimpleInput() {
               onChange={onChange}
               validationHandler={validationHandler}
               error={errors.email}
-              disabled
             />
           </Col>
           <Col md="8">

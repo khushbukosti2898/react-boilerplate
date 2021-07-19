@@ -3,15 +3,13 @@ import React from 'react';
 import { Col, Row } from 'reactstrap';
 import SimpleInput from '../components/CustomInputUse.js/SimpleInputForm';
 import HookCustomInput from '../components/CustomInputUse.js/HookCutomInputForm';
-import ReactHelmet from '../components/common/ReactHelmet';
+import MenuHeader from '../components/layout/MenuHeader';
 
 function Input() {
   return (
-    <>
-      <ReactHelmet title="Form" />
-      <h2>Input</h2>
-      <hr />
-      <Row>
+    <div>
+      <MenuHeader title="Form" />
+      <Row className="bg-white pt-4">
         <Col md="6">
           <h5>Hook form</h5>
           <HookCustomInput />
@@ -21,7 +19,7 @@ function Input() {
           <SimpleInput />
         </Col>
       </Row>
-    </>
+    </div>
   );
 }
 

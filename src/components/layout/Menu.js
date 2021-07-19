@@ -16,8 +16,8 @@ const getMenuOptions = () => {
       icon: faCog,
       hasSubMenu: true,
       subMenuOptions: [
-        { lable: 'Form', value: '/form' },
-        { lable: 'Breadcrumbs', value: '/breadcrumbs' },
+        { lable: 'Form', value: '/componets/form' },
+        { lable: 'Breadcrumbs', value: '/componets/breadcrumbs' },
       ],
     },
   ];

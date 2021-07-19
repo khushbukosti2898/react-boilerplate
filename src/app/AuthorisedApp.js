@@ -4,7 +4,7 @@ import Layout from '../components/layout';
 
 const App = lazy(() => import('../pages/App'));
 const Input = lazy(() => import('../pages/Input'));
-const Input2 = lazy(() => import('../pages/Input2'));
+const Input2 = lazy(() => import('../pages/Breadcrumb'));
 const NoMatch = lazy(() => import('../pages/NoMatch'));
 
 const AuthorisedApp = () => {
@@ -14,8 +14,8 @@ const AuthorisedApp = () => {
         <Layout>
           <Switch>
             <Route exact path="/" component={App} />
-            <Route exact path="/form" component={Input} />
-            <Route exact path="/breadcrumbs" component={Input2} />
+            <Route exact path="/componets/form" component={Input} />
+            <Route exact path="/componets/breadcrumbs" component={Input2} />
             <Route path="*" component={NoMatch} />
           </Switch>
         </Layout>
