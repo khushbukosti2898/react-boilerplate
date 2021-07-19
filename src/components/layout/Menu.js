@@ -11,13 +11,13 @@ const getMenuOptions = () => {
     },
     {
       id: '2',
-      lable: 'Form Controls',
-      value: '/inputs',
+      lable: 'Components',
+      value: '/componets',
       icon: faCog,
       hasSubMenu: true,
       subMenuOptions: [
-        { lable: 'Input1', value: '/inputs' },
-        { lable: 'Input2', value: '/input2' },
+        { lable: 'Form', value: '/form' },
+        { lable: 'Breadcrumbs', value: '/breadcrumbs' },
       ],
     },
   ];

@@ -14,8 +14,8 @@ const AuthorisedApp = () => {
         <Layout>
           <Switch>
             <Route exact path="/" component={App} />
-            <Route exact path="/inputs" component={Input} />
-            <Route exact path="/input2" component={Input2} />
+            <Route exact path="/form" component={Input} />
+            <Route exact path="/breadcrumbs" component={Input2} />
             <Route path="*" component={NoMatch} />
           </Switch>
         </Layout>
