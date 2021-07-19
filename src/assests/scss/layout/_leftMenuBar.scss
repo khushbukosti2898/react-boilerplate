@@ -48,20 +48,21 @@
 						}
 					}
 
-					&:hover,
-					&:active,
-					&:focus {
+					&.active {
+						color: $color-white;
 						opacity: 1;
-						outline: none;
-
+						background-color: blue;
 						path {
 							fill: $color-white;
 						}
 					}
 
-					&.active {
-						color: $color-white;
+					&:hover,
+					&:active,
+					&:focus {
 						opacity: 1;
+						outline: none;
+						background-color: blue;
 
 						path {
 							fill: $color-white;
@@ -71,19 +72,18 @@
 
 				.submnu-custom {
 					&.dropdown-menu {
-						margin: 0 1rem;
-						background-color: $color-white;
+						padding: 0;
 						border: 0;
 						float: none;
 						margin-top: 0;
 						position: static;
 						transform: translateX(0);
 						transition: all 0.4s ease-in-out;
+						background-color: #6a8bea;
 						// width: 100%;
 						&.show {
 							transform: translateX(0);
 							transition: all 0.8s ease-in-out;
-							padding: 1rem;
 						}
 					}
 
@@ -95,23 +95,24 @@
 							a {
 								border-width: 0;
 								opacity: 1;
-								padding: 5px 10px 5px 75px;
-								color: $color-black;
+								padding-left: 5rem;
+								color: $color-white;
 
 								&.active {
 									opacity: 1;
-									background-color: $color-white;
+									background-color: blue;
 									border-radius: .25rem;
-									color: $color-primary;
+									color: $color-white;
 								}
 
 								&:hover,
 								&:active,
 								&:focus {
 									opacity: 1;
+									background-color: blue;
 									outline: none;
 									border-radius: .25rem;
-									background-color: $color-graylight;
+									color: $color-white;
 								}
 							}
 						}
@@ -184,7 +185,7 @@
 			ul {
 				li {
 					a {
-						padding: 15px 20px;
+						padding: 15px 50px;
 
 						span {
 							display: none;
@@ -196,7 +197,7 @@
 						}
 
 						&.active {
-							background-color: $color-primary;
+							background-color: #6a8bea;
 							color: $color-white;
 							opacity: 1;
 							outline: none;
@@ -229,6 +230,7 @@
 
 						&.dropdown-menu {
 							box-shadow: 0 3px 10px #5c5c5c;
+							padding: 0;
 
 							ul {
 								background-color: $color-white;
@@ -242,14 +244,13 @@
 										padding: 5px 20px;
 
 										&.active {
-											background-color: $color-white;
+											// background-color: #6a8bea;
 											color: $color-primary;
 										}
 
 										&:hover,
-										&:active,
 										&:focus {
-											background-color: $color-graylight;
+											background-color: blue;
 										}
 									}
 
