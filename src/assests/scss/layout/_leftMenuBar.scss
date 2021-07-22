@@ -51,7 +51,9 @@
 					&.active {
 						color: $color-white;
 						opacity: 1;
-						background-color: blue;
+						background-color: $color-primary-dark;
+						border-left: 3px solid white;
+						color: $color-white;
 						path {
 							fill: $color-white;
 						}
@@ -62,7 +64,8 @@
 					&:focus {
 						opacity: 1;
 						outline: none;
-						background-color: blue;
+						background-color: $color-primary-dark;
+						color: $color-white;
 
 						path {
 							fill: $color-white;
@@ -79,7 +82,7 @@
 						position: static;
 						transform: translateX(0);
 						transition: all 0.4s ease-in-out;
-						background-color: #6a8bea;
+						background-color: $color-primary-light;
 						// width: 100%;
 						&.show {
 							transform: translateX(0);
@@ -97,10 +100,9 @@
 								opacity: 1;
 								padding-left: 5rem;
 								color: $color-white;
-
+								padding: 10px 10px 5px 75px;
 								&.active {
 									opacity: 1;
-									background-color: blue;
 									border-radius: .25rem;
 									color: $color-white;
 								}
@@ -109,10 +111,10 @@
 								&:active,
 								&:focus {
 									opacity: 1;
-									background-color: blue;
 									outline: none;
 									border-radius: .25rem;
 									color: $color-white;
+									background-color: $color-primary-dark;
 								}
 							}
 						}
@@ -185,7 +187,6 @@
 			ul {
 				li {
 					a {
-						padding: 15px 50px;
 
 						span {
 							display: none;
@@ -197,7 +198,6 @@
 						}
 
 						&.active {
-							background-color: #6a8bea;
 							color: $color-white;
 							opacity: 1;
 							outline: none;
@@ -233,10 +233,10 @@
 							padding: 0;
 
 							ul {
-								background-color: $color-white;
+								background-color: $color-primary;
 
 								li {
-									background-color: $color-white;
+									background-color: $color-primary;
 									margin-left: 0;
 
 									a {
@@ -245,12 +245,13 @@
 
 										&.active {
 											// background-color: #6a8bea;
-											color: $color-primary;
+											color: $color-white;
 										}
 
 										&:hover,
 										&:focus {
-											background-color: blue;
+											background-color: $color-primary-light;
+											color: $color-white;
 										}
 									}
 
@@ -269,7 +270,7 @@
 							}
 
 							.custom-scroll-bar {
-								background-color: $color-white;
+								background-color: $color-primary;
 								border-radius: 4px;
 								max-height: unset;
 							}

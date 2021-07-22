@@ -18,6 +18,19 @@ const getMenuOptions = () => {
       subMenuOptions: [
         { lable: 'Form', value: '/componets/form' },
         { lable: 'Breadcrumbs', value: '/componets/breadcrumbs' },
+        { lable: 'Buttons', value: '/componets/buttons' },
+        { lable: 'Toast', value: '/componets/toast' },
+        { lable: 'Table', value: '/componets/custom-table' },
+      ],
+    },
+    {
+      id: '3',
+      lable: 'Charts',
+      value: '/charts',
+      icon: faCog,
+      hasSubMenu: true,
+      subMenuOptions: [
+        { lable: 'Column Chart', value: '/charts/column-chart' },
       ],
     },
   ];

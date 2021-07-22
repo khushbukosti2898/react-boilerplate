@@ -1,8 +1,20 @@
+.form-group {
+	.form-control {
+	  min-height: calc(2em + 0.75rem + 2px);
+
+	  &-sm {
+		min-height: calc(1em + 0.75rem + 2px);
+	  }
+	}
+	.react_select__control {
+		min-height: calc(2em + 0.75rem + 2px);
+	}
+}
 .file-input {
 	.dropzone {
 		background-color: transparent;
-		border: 1px solid;
-		border-radius: 10px;
+		border: 1px solid #ced4da;
+		border-radius: .25rem;
 		padding: 10px;
 
 		&:focus {
@@ -15,6 +27,12 @@
 	}
 
 	.thumbs-container {
+		display: flex;
+		margin-top: 1rem;
+		.file-preview{
+			height: 150px;
+			width: 150px;
+		}
 		img {
 			border-radius: 10px;
 			height: 100%;
@@ -30,7 +48,6 @@
 .not-show-iconpreview {
 	.thumbs-container {
 		margin-top: 4px;
-
 		.thumb--document {
 			height: auto;
 			margin-bottom: 0;

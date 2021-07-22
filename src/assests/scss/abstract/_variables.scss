@@ -1,9 +1,46 @@
-$color-primary: #4e73df;
-$color-primary-dark: #010b53fc;
+$themes: (
+    'dark': (
+        primary: #fe4e00,
+        primary-dark: #d84300,
+        primary-light: #f06c14,
+        secondary: #7b7b7b,
+        secondary-light: #996649,
+        secondary-dark: #e0dfdf,
+    ),
+    'light': (
+        primary: #4e73df,
+        primary-dark: #2539ccfc,
+        primary-light: #6a8bea,
+        secondary: #49525f,
+        secondary-light: #37627e,
+        secondary-dark: #e0dfdf,
+    ),
+);
 
-$color-secondary: #49525f;
-$color-secondarylight: #adb5c1;
+@each $theme-name,
+$colors in $themes {
+    [data-theme='#{$theme-name}'] {
 
+        @each $name,
+        $color in $colors {
+            --#{$name}: #{$color};
+        }
+    }
+}
+
+
+$color-primary: var(--primary);
+$color-primary-dark: var(--primary-dark);
+$color-primary-light: var(--primary-light);
+$color-secondary: var(--secondary);
+$color-secondary-light: var(--secondary-light);
+$color-secondary-dark: var(--secondary-dark);
+$color-text-primary: var(--text-primay);
+$color-success: var(--success);
+$color-danger: var(--danger);
+
+$color-black: #000;
+$color-white: #fff;
 $color-gray: #bac1cb;
 $color-graydark: #49525f;
 $color-graylight: #eaecf4;

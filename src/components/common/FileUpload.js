@@ -89,7 +89,11 @@ const FileUpload = ({
           className: 'dropzone w-100 fs-20 d-flex align-items-center',
         })}
       >
-        <input {...getInputProps()} />
+        <input
+          {...getInputProps({
+            invalid: { error },
+          })}
+        />
         <FontAwesomeIcon
           icon={faCloudUploadAlt}
           size="sm"

@@ -109,7 +109,6 @@ const CustomInput = ({
               {...inputProps}
               onChange={(e) => onChangeHandler(e, onChange)}
               onBlur={(e) => onValidationChange(e, validationHandler)}
-              invalid={error}
             />
             {appendIcon && (
               <InputGroupAddon addonType="append">

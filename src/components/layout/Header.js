@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/jsx-wrap-multilines */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
@@ -15,8 +16,9 @@ import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../../hooks/useAuth';
 import { removeItemFromStorage } from '../../utils/helper';
 import logo from '../../assests/images/logo.svg';
+import connectTheme from '../common/connectTheme';
 
-const Header = ({ collapseToggle }) => {
+const Header = ({ collapseToggle, toggleTheme, theme }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
@@ -29,7 +31,6 @@ const Header = ({ collapseToggle }) => {
   };
   const loggedInUser = user.authUser;
   const loggedInUserName = loggedInUser && loggedInUser.fullName;
-
   return (
     <div className="top-nav custom-shadow">
       <Row className="justify-content-between">
@@ -45,6 +46,21 @@ const Header = ({ collapseToggle }) => {
           <span>Common Component Panel</span>
         </Col>
         <Col className="d-flex justify-content-end">
+          <div className="theme-toggle mx-2">
+            Blue
+            <label className="theme-toggle-input" htmlFor="theme-toggle">
+              <input
+                id="theme-toggle"
+                type="checkbox"
+                onChange={(e) => {
+                  toggleTheme(e.target.checked ? 'dark' : 'light');
+                }}
+                checked={theme === 'dark'}
+              />
+              <span className="theme-toggle-circle" />
+            </label>
+            Orange
+          </div>
           <Dropdown
             isOpen={dropdownOpen}
             toggle={toggle}
@@ -77,5 +93,8 @@ Header.defaultProps = {};
 
 Header.propTypes = {
   collapseToggle: PropTypes.func.isRequired,
+  toggleTheme: PropTypes.func.isRequired,
+  theme: PropTypes.string.isRequired,
 };
-export default Header;
+
+export default connectTheme(Header);
