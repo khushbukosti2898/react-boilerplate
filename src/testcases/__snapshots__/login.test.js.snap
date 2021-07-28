@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot login test Snapshot login match 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="justify-content-center align-items-center h-100vh row"
+  >
+    <div
+      className="col-sm-12 col-md-6"
+    >
+      <div
+        className="card"
+      >
+        <div
+          className="card-body"
+        >
+          <h3
+            className="text-center mb-5 card-title"
+          >
+            Login
+          </h3>
+          <form
+            className=""
+            onSubmit={[Function]}
+          >
+            <div
+              className="mt-2  form-group"
+            >
+              <label
+                className=""
+                htmlFor="email"
+              >
+                Email
+              </label>
+              <span
+                className="text-danger"
+              >
+                *
+              </span>
+              <div
+                className="input-group"
+              >
+                <input
+                  checked={false}
+                  className="form-control"
+                  data-testid="email"
+                  disabled={false}
+                  id="email"
+                  name="email"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Enter email"
+                  style={Object {}}
+                  type="email"
+                  value=""
+                />
+              </div>
+              
+            </div>
+            <div
+              className="mt-2  form-group"
+            >
+              <label
+                className=""
+                htmlFor="password"
+              >
+                Password
+              </label>
+              <span
+                className="text-danger"
+              >
+                *
+              </span>
+              <div
+                className="input-group"
+              >
+                <input
+                  checked={false}
+                  className="form-control"
+                  data-testid="password"
+                  disabled={false}
+                  id="password"
+                  name="password"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Enter password"
+                  style={Object {}}
+                  type="password"
+                  value=""
+                />
+              </div>
+              
+            </div>
+            <button
+              aria-label={null}
+              className="btn btn-primary mt-2"
+              data-testid="login"
+              onClick={[Function]}
+            >
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

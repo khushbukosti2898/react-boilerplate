@@ -37,6 +37,7 @@ const CustomInput = ({
   maxValue,
   outerClassName,
   id,
+  dataTestId,
 }) => {
   const inputProps = {
     type,
@@ -71,6 +72,7 @@ const CustomInput = ({
   };
 
   const onChangeHandler = (e, onInputChange) => {
+    onValidationChange(e, validationHandler);
     if (reqType === 'number')
       e.target.value = e.target.value
         .replace(/[^0-9.]/g, '')
@@ -109,6 +111,7 @@ const CustomInput = ({
               {...inputProps}
               onChange={(e) => onChangeHandler(e, onChange)}
               onBlur={(e) => onValidationChange(e, validationHandler)}
+              data-testid={dataTestId}
             />
             {appendIcon && (
               <InputGroupAddon addonType="append">
@@ -119,7 +122,11 @@ const CustomInput = ({
         </>
       )}
       {helperText && <FormText color="muted">{helperText}</FormText>}
-      {error ? <span className="text-danger fs-12">{error}</span> : null}
+      {error ? (
+        <span data-testid="input-error" className="text-danger fs-12">
+          {error}
+        </span>
+      ) : null}
     </FormGroup>
   );
 };
@@ -149,6 +156,7 @@ CustomInput.defaultProps = {
   maxValue: 999999,
   outerClassName: '',
   id: '',
+  dataTestId: '',
 };
 
 CustomInput.propTypes = {
@@ -177,6 +185,7 @@ CustomInput.propTypes = {
   maxValue: PropTypes.number,
   outerClassName: PropTypes.string,
   id: PropTypes.string,
+  dataTestId: PropTypes.string,
 };
 
 export default CustomInput;

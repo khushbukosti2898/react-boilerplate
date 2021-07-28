@@ -2,6 +2,12 @@ import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Layout from '../components/layout';
 
+const dataList = [
+  { id: 1, task: 'Wash dish', completed: false },
+  { id: 2, task: 'Make dinner', completed: true },
+  { id: 3, task: 'Wash clothes', completed: false },
+];
+
 const App = lazy(() => import('../pages/App'));
 const NoMatch = lazy(() => import('../pages/NoMatch'));
 const Input = lazy(() => import('../pages/Input'));
@@ -18,7 +24,7 @@ const AuthorisedApp = () => {
       <Layout>
         <Suspense fallback={<h2>Loading...</h2>}>
           <Switch>
-            <Route exact path="/" component={App} />
+            <Route exact path="/" render={() => <App dataList={dataList} />} />
             <Route exact path="/componets/form" component={Input} />
             <Route exact path="/componets/breadcrumbs" component={Input2} />
             <Route exact path="/componets/buttons" component={Buttons} />

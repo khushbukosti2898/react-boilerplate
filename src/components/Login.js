@@ -6,30 +6,50 @@ import {
   Col,
   Button,
   Form,
-  FormGroup,
-  Label,
-  Input,
   Card,
   CardBody,
   CardTitle,
 } from 'reactstrap';
 import { useAuth } from '../hooks/useAuth';
 import { setItemInStorage } from '../utils/helper';
+import { checkValidation } from './common/form-control/formRules';
+import CustomInput from './common/form-control/simple-component/CustomInput';
+
+const initailValue = {
+  email: '',
+  password: '',
+};
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [formData, setFormData] = useState(initailValue);
+  const [errors, setErrors] = useState({});
+  const onChange = (name, value) => {
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const validationHandler = (name, error) => {
+    setErrors({ ...errors, [name]: error });
+  };
 
   const history = useHistory();
   const auth = useAuth();
   const onLoginClick = (e) => {
     e.preventDefault();
-    auth.login();
-    setItemInStorage('user', {
-      email,
+    const validationError = checkValidation(errors, {
+      email: formData.email,
+      password: formData.password,
     });
-    history.push('/');
+    if (Object.keys(validationError).length !== 0) {
+      setErrors(validationError);
+    } else {
+      auth.login();
+      setItemInStorage('user', {
+        email: formData.email,
+      });
+      history.push('/');
+    }
   };
+
   return (
     <Container>
       <Row className="justify-content-center align-items-center h-100vh">
@@ -40,31 +60,37 @@ const Login = () => {
                 Login
               </CardTitle>
               <Form onSubmit={onLoginClick}>
-                <FormGroup>
-                  <Label for="email">Email</Label>
-                  <Input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </FormGroup>
-                <FormGroup className="mt-2">
-                  <Label for="password">Password</Label>
-                  <Input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                </FormGroup>
-                <Button color="primary mt-2">Login</Button>
+                <CustomInput
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  label="Email"
+                  title="email"
+                  placeholder="Enter email"
+                  isRequired
+                  reqType="email"
+                  onChange={onChange}
+                  validationHandler={validationHandler}
+                  error={errors.email}
+                  dataTestId="email"
+                />
+                <CustomInput
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  label="Password"
+                  title="password"
+                  placeholder="Enter password"
+                  isRequired
+                  reqType="password"
+                  onChange={onChange}
+                  validationHandler={validationHandler}
+                  error={errors.password}
+                  dataTestId="password"
+                />
+                <Button color="primary mt-2" data-testid="login">
+                  Login
+                </Button>
               </Form>
             </CardBody>
           </Card>
