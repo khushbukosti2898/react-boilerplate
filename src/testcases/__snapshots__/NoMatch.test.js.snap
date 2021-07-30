@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot of no match test Snapshot of no match 1`] = `
+<div
+  className="error-template text-text-primary  d-flex justify-content-center align-items-center"
+  data-testid="error"
+>
+  <div
+    className="text-center"
+  >
+    <h1
+      className="text-danger mb-2"
+    >
+      Oops!!!
+    </h1>
+    <p
+      data-testid="error.message"
+    >
+      The page you are looking for was not found
+    </p>
+    <a
+      className="btn btn-primary mt-4"
+      data-testid="error.home-link"
+      href="/"
+    >
+      Go back to home
+    </a>
+  </div>
+</div>
+`;

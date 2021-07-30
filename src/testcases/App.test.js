@@ -1,8 +1,9 @@
-import { cleanup, render } from '@testing-library/react';
+import { cleanup, render, waitFor } from '@testing-library/react';
 import { getRoles, logRoles } from '@testing-library/dom'
 
 import App from '../pages/App';
 import renderer from 'react-test-renderer';
+import ReactHelmet from '../components/common/ReactHelmet';
 
 // afterEach(() => {
 //   cleanup();
@@ -36,13 +37,14 @@ describe('My tests 2', () => {
 });
 
 describe('<App />', () => {
+
   test('renders "no contacts" when there are no contacts', () => {
     const { getByText } = render(<App />);
     expect(getByText(/no contacts/i)).toBeInTheDocument();
-  })
+  });
 
   test('renders when contacts', () => {
-    const contacts = [{ id: 1, task: 'Wash dish', completed: false }, 
+    const contacts = [{ id: 1, task: 'Wash dish', completed: false },
     { id: 2, task: 'Wash dish', completed: false },
     { id: 3, task: 'Wash dish', completed: false }];
     const { getAllByTestId } = render(<App dataList={contacts} />);

@@ -7,11 +7,15 @@ const App = ({ dataList }) => {
   if (!dataList || dataList.length === 0) {
     return <div>No Contacts</div>;
   }
-  return dataList.map((data) => (
-    <li data-testid="list-name" key={data.id}>
-      {data.task}
-    </li>
-  ));
+  return (
+    <>
+      {dataList.map((data) => (
+        <li data-testid="list-name" key={data.id}>
+          {data.task}
+        </li>
+      ))}
+    </>
+  );
 };
 
 App.defaultProps = {

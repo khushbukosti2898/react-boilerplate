@@ -3,11 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faCloudUploadAlt,
-  faFileAlt,
-  faTrashAlt,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import { Button, Label } from 'reactstrap';
 
 const FileUpload = ({
