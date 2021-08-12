@@ -74,3 +74,7 @@ export const listNoRecord = (
   }
   return null;
 };
+
+export const getFileStorageBaseUrl = () => {
+  return 'https://thumbs.preview.com';
+};

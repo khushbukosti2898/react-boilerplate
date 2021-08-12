@@ -22,6 +22,7 @@ const initailValue = {
   color: '#4e73df',
   file: [],
   reactSelect: null,
+  gender: null,
 };
 
 function SimpleInput() {
@@ -42,6 +43,7 @@ function SimpleInput() {
     color,
     file,
     reactSelect,
+    gender,
   } = formData;
 
   const onSubmit = (e) => {
@@ -55,6 +57,8 @@ function SimpleInput() {
       url,
       file,
       reactSelect,
+      checkbox,
+      gender,
     });
     if (Object.keys(validationError).length !== 0) {
       setErrors(validationError);
@@ -159,6 +163,7 @@ function SimpleInput() {
             />
           </Col>
           <Col md="8">
+            <span>Select checkbox</span>
             <CustomInput
               type="checkbox"
               name="checkbox"
@@ -172,31 +177,19 @@ function SimpleInput() {
               error={errors.checkbox}
             />
           </Col>
-          <Col md="8" className="d-flex">
-            <CustomInput
-              type="radio"
-              name="radio"
-              value="radio 1"
-              checked={radio === 'radio 1'}
-              label="Radio 1"
-              placeholder="Enter radio"
-              onChange={onChange}
-              error={errors.radio}
-              id="radio1"
-            />
-            <CustomInput
-              type="radio"
-              name="radio"
-              value="radio 2"
-              label="Radio 2"
-              checked={radio === 'radio 2'}
-              placeholder="Enter radio"
-              onChange={onChange}
-              error={errors.radio}
-              outerClassName="mx-3"
-              id="radio2"
-            />
-          </Col>
+          <CustomInput
+            type="radio"
+            name="gender"
+            value={gender}
+            label="Slect gender"
+            onChange={onChange}
+            error={errors.gender}
+            validationHandler={validationHandler}
+            radioList={[
+              { label: 'Male', value: 'male' },
+              { label: 'Female', value: 'female' },
+            ]}
+          />
           <Col md="8">
             <CustomInput
               type="url"
