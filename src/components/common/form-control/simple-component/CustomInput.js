@@ -8,6 +8,7 @@ import {
   InputGroupAddon,
   InputGroupText,
   Label,
+  CustomInput as CInput,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { getRegExp } from '../formRules';
@@ -99,12 +100,12 @@ const CustomInput = ({
     if (type === 'checkbox')
       return (
         <Label>
-          <Input
+          <CInput
             {...inputProps}
             onChange={(e) => onChangeHandler(e, onChange)}
             onBlur={(e) => onCheckboxValidationChange(e)}
+            label={label}
           />
-          {` ${label}`}
         </Label>
       );
     if (type === 'radio')
@@ -165,7 +166,7 @@ const CustomInput = ({
   };
 
   return (
-    <FormGroup className={`mb-2 ${outerClassName}`}>
+    <FormGroup className={`${outerClassName}`}>
       {renderInput()}
       {helperText && <FormText color="muted">{helperText}</FormText>}
       {error ? (

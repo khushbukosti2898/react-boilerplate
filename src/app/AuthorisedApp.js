@@ -9,6 +9,7 @@ const Input2 = lazy(() => import('../pages/Breadcrumb'));
 const Buttons = lazy(() => import('../pages/Buttons'));
 const Toast = lazy(() => import('../pages/Toast'));
 const CustomTable = lazy(() => import('../pages/Table'));
+const ReactSelectDemo = lazy(() => import('../pages/ReactSelect'));
 
 const ColumnChart = lazy(() => import('../pages/ColumnChart'));
 
@@ -23,6 +24,11 @@ const AuthorisedApp = () => {
             <Route exact path="/componets/breadcrumbs" component={Input2} />
             <Route exact path="/componets/buttons" component={Buttons} />
             <Route exact path="/componets/toast" component={Toast} />
+            <Route
+              exact
+              path="/componets/react-select"
+              component={ReactSelectDemo}
+            />
             <Route
               exact
               path="/componets/custom-table"

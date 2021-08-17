@@ -23,6 +23,11 @@ const initailValue = {
   file: [],
   reactSelect: null,
   gender: null,
+  searchable: false,
+  clearable: true,
+  disabled: false,
+  rtl: false,
+  loading: false,
 };
 
 function SimpleInput() {
@@ -44,6 +49,11 @@ function SimpleInput() {
     file,
     reactSelect,
     gender,
+    searchable,
+    clearable,
+    disabled,
+    rtl,
+    loading,
   } = formData;
 
   const onSubmit = (e) => {
@@ -251,6 +261,58 @@ function SimpleInput() {
               ]}
               error={errors.reactSelect}
               validationHandler={validationHandler}
+              isSearchable={searchable}
+              isClearable={clearable}
+              isDisabled={disabled}
+              isRtl={rtl}
+              isLoading={loading}
+            />
+          </Col>
+          <Col md="8" className="d-flex">
+            <CustomInput
+              type="checkbox"
+              name="searchable"
+              checked={searchable}
+              label="Searchable"
+              title="searchable"
+              isRequired
+              onChange={onChange}
+            />
+            <CustomInput
+              type="checkbox"
+              name="clearable"
+              checked={clearable}
+              label="Clearable"
+              title="clearable"
+              isRequired
+              onChange={onChange}
+            />
+            <CustomInput
+              type="checkbox"
+              name="disabled"
+              checked={disabled}
+              label="Disabled"
+              title="disabled"
+              isRequired
+              onChange={onChange}
+            />
+            <CustomInput
+              type="checkbox"
+              name="rtl"
+              checked={rtl}
+              label="RTL"
+              title="rtl"
+              isRequired
+              onChange={onChange}
+            />
+            <CustomInput
+              type="checkbox"
+              name="loading"
+              checked={loading}
+              label="Loading"
+              title="loading"
+              isRequired
+              onChange={onChange}
             />
           </Col>
         </Row>

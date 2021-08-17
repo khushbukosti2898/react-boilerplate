@@ -1,8 +1,9 @@
-/* eslint-disable no-shadow */
 import React from 'react';
 import Select from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 import { FormGroup, FormText, Label } from 'reactstrap';
 import PropTypes from 'prop-types';
+import { useState } from 'react/cjs/react.development';
 
 const ReactSelect = ({
   name,
@@ -24,15 +25,57 @@ const ReactSelect = ({
   options,
   helperText,
   validationHandler,
+  isRtl,
+  isCreatable,
 }) => {
   const refSelect = React.useRef();
+  const [updatedOp, setupdatedOp] = useState(options);
 
-  const onValidationChange = (value) => {
+  const onValidationChange = (selectedValue) => {
     let errorMessage = '';
-    if (value.length === 0 && isRequired) {
+    if (selectedValue.length === 0 && isRequired) {
       errorMessage = `Please enter ${title}.`;
     }
     validationHandler(name, errorMessage);
+  };
+
+  const inputProps = {
+    className,
+    classNamePrefix: 'react_select',
+    isClearable,
+    isDisabled,
+    isLoading,
+    isMulti,
+    isSearchable,
+    loadingMessage: () => loadingMessage,
+    menuPlacement,
+    isRtl,
+    name,
+    noOptionsMessage: () => noOptionsMessage,
+    onChange: (selectedVal) => {
+      let op = [];
+      onChange(name, selectedVal);
+      if (selectedVal) {
+        if (Array.isArray(selectedVal)) op = [...updatedOp, ...selectedVal];
+        else op = [...updatedOp, selectedVal];
+        op = op.filter(
+          (element, ind, arr) =>
+            arr.findIndex((t) => t.value === element.value) === ind,
+        );
+        setupdatedOp(op);
+      }
+    },
+    options: updatedOp,
+    onBlur: () => {
+      if (refSelect.current) {
+        const isCreatableEle = isCreatable
+          ? refSelect?.current?.Creatable?.getValue()
+          : refSelect?.current?.select?.getValue();
+        if (isCreatableEle) onValidationChange(isCreatableEle);
+      }
+    },
+    ref: refSelect,
+    value,
   };
 
   return (
@@ -43,29 +86,11 @@ const ReactSelect = ({
           {isRequired ? <span className="text-danger">*</span> : null}
         </>
       ) : null}
-      <Select
-        className={className}
-        classNamePrefix="react_select"
-        isClearable={isClearable}
-        isDisabled={isDisabled}
-        isLoading={isLoading}
-        isMulti={isMulti}
-        isSearchable={isSearchable}
-        loadingMessage={() => loadingMessage}
-        menuPlacement={menuPlacement}
-        name={name}
-        noOptionsMessage={() => noOptionsMessage}
-        onChange={(value) => onChange(name, value)}
-        options={options}
-        onBlur={() => {
-          if (refSelect.current) {
-            const value = refSelect.current.select.getValue();
-            onValidationChange(value);
-          }
-        }}
-        ref={refSelect}
-        value={value}
-      />
+      {isCreatable ? (
+        <CreatableSelect {...inputProps} />
+      ) : (
+        <Select {...inputProps} />
+      )}
       {helperText && <FormText color="muted">{helperText}</FormText>}
       {error ? <span className="text-danger fs-12">{error}</span> : null}
     </FormGroup>
@@ -89,6 +114,8 @@ ReactSelect.defaultProps = {
   value: null,
   isSearchable: false,
   title: '',
+  isRtl: false,
+  isCreatable: false,
 };
 
 ReactSelect.propTypes = {
@@ -107,10 +134,12 @@ ReactSelect.propTypes = {
   onChange: PropTypes.func.isRequired,
   options: PropTypes.array.isRequired,
   validationHandler: PropTypes.func,
-  value: PropTypes.object,
+  value: PropTypes.any,
   loadingMessage: PropTypes.string,
   isLoading: PropTypes.bool,
   title: PropTypes.string,
+  isRtl: PropTypes.bool,
+  isCreatable: PropTypes.bool,
 };
 
 export default ReactSelect;
