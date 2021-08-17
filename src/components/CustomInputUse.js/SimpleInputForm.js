@@ -22,6 +22,12 @@ const initailValue = {
   color: '#4e73df',
   file: [],
   reactSelect: null,
+  gender: null,
+  searchable: false,
+  clearable: true,
+  disabled: false,
+  rtl: false,
+  loading: false,
 };
 
 function SimpleInput() {
@@ -42,6 +48,12 @@ function SimpleInput() {
     color,
     file,
     reactSelect,
+    gender,
+    searchable,
+    clearable,
+    disabled,
+    rtl,
+    loading,
   } = formData;
 
   const onSubmit = (e) => {
@@ -55,6 +67,8 @@ function SimpleInput() {
       url,
       file,
       reactSelect,
+      checkbox,
+      gender,
     });
     if (Object.keys(validationError).length !== 0) {
       setErrors(validationError);
@@ -159,6 +173,7 @@ function SimpleInput() {
             />
           </Col>
           <Col md="8">
+            <span>Select checkbox</span>
             <CustomInput
               type="checkbox"
               name="checkbox"
@@ -172,31 +187,19 @@ function SimpleInput() {
               error={errors.checkbox}
             />
           </Col>
-          <Col md="8" className="d-flex">
-            <CustomInput
-              type="radio"
-              name="radio"
-              value="radio 1"
-              checked={radio === 'radio 1'}
-              label="Radio 1"
-              placeholder="Enter radio"
-              onChange={onChange}
-              error={errors.radio}
-              id="radio1"
-            />
-            <CustomInput
-              type="radio"
-              name="radio"
-              value="radio 2"
-              label="Radio 2"
-              checked={radio === 'radio 2'}
-              placeholder="Enter radio"
-              onChange={onChange}
-              error={errors.radio}
-              outerClassName="mx-3"
-              id="radio2"
-            />
-          </Col>
+          <CustomInput
+            type="radio"
+            name="gender"
+            value={gender}
+            label="Slect gender"
+            onChange={onChange}
+            error={errors.gender}
+            validationHandler={validationHandler}
+            radioList={[
+              { label: 'Male', value: 'male' },
+              { label: 'Female', value: 'female' },
+            ]}
+          />
           <Col md="8">
             <CustomInput
               type="url"
@@ -258,6 +261,58 @@ function SimpleInput() {
               ]}
               error={errors.reactSelect}
               validationHandler={validationHandler}
+              isSearchable={searchable}
+              isClearable={clearable}
+              isDisabled={disabled}
+              isRtl={rtl}
+              isLoading={loading}
+            />
+          </Col>
+          <Col md="8" className="d-flex">
+            <CustomInput
+              type="checkbox"
+              name="searchable"
+              checked={searchable}
+              label="Searchable"
+              title="searchable"
+              isRequired
+              onChange={onChange}
+            />
+            <CustomInput
+              type="checkbox"
+              name="clearable"
+              checked={clearable}
+              label="Clearable"
+              title="clearable"
+              isRequired
+              onChange={onChange}
+            />
+            <CustomInput
+              type="checkbox"
+              name="disabled"
+              checked={disabled}
+              label="Disabled"
+              title="disabled"
+              isRequired
+              onChange={onChange}
+            />
+            <CustomInput
+              type="checkbox"
+              name="rtl"
+              checked={rtl}
+              label="RTL"
+              title="rtl"
+              isRequired
+              onChange={onChange}
+            />
+            <CustomInput
+              type="checkbox"
+              name="loading"
+              checked={loading}
+              label="Loading"
+              title="loading"
+              isRequired
+              onChange={onChange}
             />
           </Col>
         </Row>

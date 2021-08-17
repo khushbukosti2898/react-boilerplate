@@ -1,36 +1,103 @@
-.file-input {
-	.dropzone {
-		background-color: transparent;
-		border: 1px solid;
-		border-radius: 10px;
-		padding: 10px;
+.form-group {
+	.form-control {
+	  min-height: calc(2em + 0.75rem + 2px);
 
-		&:focus {
-			outline: none;
-		}
+	  &-sm {
+		min-height: calc(1em + 0.75rem + 2px);
+	  }
 	}
-
-	i {
-		color: #49525f;
-	}
-
-	.thumbs-container {
-		img {
-			border-radius: 10px;
-			height: 100%;
-			object-fit: cover;
-		}
-
-		.btn-sm {
-			padding: 0.25rem 0.5rem;
-		}
+	.react_select__control {
+		min-height: calc(2em + 0.75rem + 2px);
 	}
 }
+.file-input {
+	.dropzone {
+	  background-color: transparent;
+	  border: 1px solid #ced4da;
+	  border-radius: 0.25rem;
+	  color: hsl(0, 0%, 50%);
+	  padding: 0.375rem 0.75rem;
+  
+	  svg path {
+		fill: hsl(0, 0%, 50%);
+	  }
+  
+	  &:focus {
+		outline: none;
+	  }
+	}
+  
+	.thumbs-container {
+	  align-items: center;
+	  display: flex;
+	  flex-wrap: wrap;
+  
+	  .thumb {
+		align-items: center;
+		box-sizing: border-box;
+		display: flex;
+		flex-wrap: wrap;
+		height: 150px;
+		width: 200px;
+		margin-bottom: 0.25rem;
+		margin-right: 0.25rem;
+	  }
+  
+	  .thumb--document {
+		align-items: center;
+		border: 1px solid #ced4da;
+		border-radius: 0.25remx;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		height: 150px;
+		justify-content: center;
+		margin-bottom: 0.25rem;
+		margin-right: 0.25rem;
+		min-width: 0;
+		padding: 5px;
+		width: 200px;
+  
+		.fa-file-pdf {
+		  height: 100px;
+		}
+  
+		.thumb--document-name {
+		  font-size: 12px;
+		  overflow: hidden;
+		  text-align: center;
+		  text-overflow: ellipsis;
+		  white-space: nowrap;
+		  width: 15em;
+		}
+	  }
+  
+	  img {
+		border-radius: 0.25rem;
+		height: 100%;
+		object-fit: cover;
+		width: 100%;
+	  }
+  
+	  .trash-icon {
+		align-items: center;
+		border-radius: 3px;
+		justify-content: center;
+		position: absolute;
+		right: 0;
+		top: 0;
+  
+		&:hover {
+		  cursor: pointer;
+		}
+	  }
+	}
+  }
+  
 
 .not-show-iconpreview {
 	.thumbs-container {
 		margin-top: 4px;
-
 		.thumb--document {
 			height: auto;
 			margin-bottom: 0;

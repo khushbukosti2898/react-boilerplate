@@ -112,3 +112,44 @@
 		}
 	}
 }
+
+.theme-toggle {
+	align-items: center;
+	display: flex;
+
+	.fa-sun path {
+		fill: $color-primary;
+	}
+
+	.fa-moon path {
+		fill: #d8d8d3;
+	}
+
+	&-input {
+		background: $color-secondary;
+		border-radius: 20px;
+		cursor: pointer;
+		height: 12px;
+		margin: 0 5px;
+		transform: translate(0, 1px);
+		width: 40px;
+
+		input {
+			display: none;
+		}
+	}
+
+	&-circle {
+		background-color: $color-primary;
+		border-radius: 50%;
+		height: 18px;
+		left: 0;
+		position: absolute;
+		top: -3px;
+		width: 18px;
+	}
+
+	input:checked ~ &-circle {
+		left: 22px;
+	}
+}

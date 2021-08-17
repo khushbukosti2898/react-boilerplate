@@ -152,6 +152,8 @@ export const checkValidation = (errors, data) => {
   Object.keys(data).forEach((key) => {
     if (Array.isArray(data[key]) && data[key].length <= 0) {
       finalErrors[key] = `Please enter ${key}.`;
+    } else if (typeof data[key] === 'boolean' && data[key] === false) {
+      finalErrors[key] = `Please select ${key}.`;
     } else if (data[key] !== false && !data[key]) {
       finalErrors[key] = `Please enter ${key}.`;
     }
