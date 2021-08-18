@@ -20,6 +20,7 @@ const getMenuOptions = () => {
         { lable: 'Breadcrumbs', value: '/componets/breadcrumbs' },
         { lable: 'Buttons', value: '/componets/buttons' },
         { lable: 'React Select', value: '/componets/react-select' },
+        { lable: 'React Datepicker', value: '/componets/react-datepicker' },
         { lable: 'Toast', value: '/componets/toast' },
         { lable: 'Table', value: '/componets/custom-table' },
       ],

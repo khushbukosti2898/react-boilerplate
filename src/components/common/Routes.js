@@ -7,6 +7,7 @@ const routes = {
   '/componets/toast': 'Toast',
   '/componets/custom-table': 'Table',
   '/componets/react-select': 'React Select',
+  '/componets/react-datepicker': 'React Date Picker',
 
   '/charts': 'Charts',
   '/charts/column-chart': 'Column Chart',

@@ -1,9 +1,9 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Col, Row, Button } from 'reactstrap';
+import CustomDatePicker from '../common/CustomDatePicker';
 import FileUpload from '../common/FileUpload';
 import { checkValidation } from '../common/form-control/formRules';
 import CustomInput from '../common/form-control/simple-component/CustomInput';
@@ -28,6 +28,7 @@ const initailValue = {
   disabled: false,
   rtl: false,
   loading: false,
+  date: null,
 };
 
 function SimpleInput() {
@@ -43,7 +44,6 @@ function SimpleInput() {
     mobile,
     checkbox,
     url,
-    radio,
     range,
     color,
     file,
@@ -54,6 +54,7 @@ function SimpleInput() {
     disabled,
     rtl,
     loading,
+    date,
   } = formData;
 
   const onSubmit = (e) => {
@@ -69,6 +70,7 @@ function SimpleInput() {
       reactSelect,
       checkbox,
       gender,
+      date,
     });
     if (Object.keys(validationError).length !== 0) {
       setErrors(validationError);
@@ -269,50 +271,17 @@ function SimpleInput() {
             />
           </Col>
           <Col md="8" className="d-flex">
-            <CustomInput
-              type="checkbox"
-              name="searchable"
-              checked={searchable}
-              label="Searchable"
-              title="searchable"
-              isRequired
+            <CustomDatePicker
+              name="date"
+              label="Select date"
+              value={date}
               onChange={onChange}
-            />
-            <CustomInput
-              type="checkbox"
-              name="clearable"
-              checked={clearable}
-              label="Clearable"
-              title="clearable"
+              validationHandler={validationHandler}
+              error={errors.date}
               isRequired
-              onChange={onChange}
-            />
-            <CustomInput
-              type="checkbox"
-              name="disabled"
-              checked={disabled}
-              label="Disabled"
-              title="disabled"
-              isRequired
-              onChange={onChange}
-            />
-            <CustomInput
-              type="checkbox"
-              name="rtl"
-              checked={rtl}
-              label="RTL"
-              title="rtl"
-              isRequired
-              onChange={onChange}
-            />
-            <CustomInput
-              type="checkbox"
-              name="loading"
-              checked={loading}
-              label="Loading"
-              title="loading"
-              isRequired
-              onChange={onChange}
+              placeholder="Select date"
+              maxDate={new Date()}
+              title="date"
             />
           </Col>
         </Row>

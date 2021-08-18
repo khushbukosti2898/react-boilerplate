@@ -10,6 +10,7 @@ const Buttons = lazy(() => import('../pages/Buttons'));
 const Toast = lazy(() => import('../pages/Toast'));
 const CustomTable = lazy(() => import('../pages/Table'));
 const ReactSelectDemo = lazy(() => import('../pages/ReactSelect'));
+const ReactDatePickerDemo = lazy(() => import('../pages/ReactDatePicker'));
 
 const ColumnChart = lazy(() => import('../pages/ColumnChart'));
 
@@ -28,6 +29,11 @@ const AuthorisedApp = () => {
               exact
               path="/componets/react-select"
               component={ReactSelectDemo}
+            />
+            <Route
+              exact
+              path="/componets/react-datepicker"
+              component={ReactDatePickerDemo}
             />
             <Route
               exact
