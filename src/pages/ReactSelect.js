@@ -140,7 +140,7 @@ function ReactSelectDemo() {
             type="checkbox"
             name="isCreatable"
             checked={isCreatable}
-            label="Creatbale options (Make sure searchable is on)"
+            label="Creatable options (Make sure searchable is on)"
             title="isCreatable"
             isRequired
             onChange={onChange}

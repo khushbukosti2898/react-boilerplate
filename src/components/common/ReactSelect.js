@@ -79,7 +79,7 @@ const ReactSelect = ({
   };
 
   return (
-    <FormGroup>
+    <FormGroup className={className}>
       {label ? (
         <>
           <Label for={name}>{label}</Label>

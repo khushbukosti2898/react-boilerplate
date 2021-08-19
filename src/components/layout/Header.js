@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /* eslint-disable react/jsx-wrap-multilines */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
@@ -60,6 +59,18 @@ const Header = ({ collapseToggle, toggleTheme, theme }) => {
               <span className="theme-toggle-circle" />
             </label>
             Orange
+          </div>
+          <div className="d-flex">
+            <select onChange={(e) => window.doGTranslate(e.target.value)}>
+              <option value="">Select Language</option>
+              <option value="en|af">Afrikaans</option>
+              <option value="en|en">English</option>
+              <option value="en|fr">French</option>
+              <option value="en|de">German</option>
+              <option value="en|el">Greek</option>
+              <option value="en|hi">Hindi</option>
+              <option value="en|ur">Urdu</option>
+            </select>
           </div>
           <Dropdown
             isOpen={dropdownOpen}
