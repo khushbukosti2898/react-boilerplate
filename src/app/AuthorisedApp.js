@@ -11,6 +11,7 @@ const Toast = lazy(() => import('../pages/Toast'));
 const CustomTable = lazy(() => import('../pages/Table'));
 const ReactSelectDemo = lazy(() => import('../pages/ReactSelect'));
 const ReactDatePickerDemo = lazy(() => import('../pages/ReactDatePicker'));
+const MapDemo = lazy(() => import('../pages/Map'));
 
 const ColumnChart = lazy(() => import('../pages/ColumnChart'));
 
@@ -41,6 +42,7 @@ const AuthorisedApp = () => {
               component={CustomTable}
             />
             <Route exact path="/charts/column-chart" component={ColumnChart} />
+            <Route exact path="/componets/map" component={MapDemo} />
             <Route path="*" component={NoMatch} />
           </Switch>
         </Suspense>
