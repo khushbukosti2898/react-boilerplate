@@ -13,6 +13,9 @@ const ReactSelectDemo = lazy(() => import('../pages/ReactSelect'));
 const ReactDatePickerDemo = lazy(() => import('../pages/ReactDatePicker'));
 const MapDemo = lazy(() => import('../pages/Map'));
 
+const ExcelRead = lazy(() => import('../pages/ExcelRead'));
+const ReactCSVRead = lazy(() => import('../pages/ReactCSVReaderDemo'));
+
 const ColumnChart = lazy(() => import('../pages/ColumnChart'));
 
 const AuthorisedApp = () => {
@@ -41,8 +44,16 @@ const AuthorisedApp = () => {
               path="/componets/custom-table"
               component={CustomTable}
             />
-            <Route exact path="/charts/column-chart" component={ColumnChart} />
             <Route exact path="/componets/map" component={MapDemo} />
+
+            <Route exact path="/charts/column-chart" component={ColumnChart} />
+
+            <Route exact path="/reader/excel-read" component={ExcelRead} />
+            <Route
+              exact
+              path="/reader/react-csv-reader"
+              component={ReactCSVRead}
+            />
             <Route path="*" component={NoMatch} />
           </Switch>
         </Suspense>

@@ -10,6 +10,9 @@ const routes = {
   '/componets/react-datepicker': 'React Date Picker',
   '/componets/map': 'Map',
 
+  '/reader/excel-read': 'Excel Read',
+  '/reader/react-csv-reader': 'React CSV Reader',
+
   '/charts': 'Charts',
   '/charts/column-chart': 'Column Chart',
 };

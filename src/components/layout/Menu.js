@@ -36,6 +36,17 @@ const getMenuOptions = () => {
         { lable: 'Column Chart', value: '/charts/column-chart' },
       ],
     },
+    {
+      id: '4',
+      lable: 'File Reader',
+      value: '/reader',
+      icon: faCog,
+      hasSubMenu: true,
+      subMenuOptions: [
+        { lable: 'Excel Read', value: '/reader/excel-read' },
+        { lable: 'React CSV Reader', value: '/reader/react-csv-reader' },
+      ],
+    },
   ];
 };
 export default getMenuOptions;
