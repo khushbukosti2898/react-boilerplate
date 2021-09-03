@@ -16,7 +16,7 @@ const MapDemo = lazy(() => import('../pages/Map'));
 const ExcelRead = lazy(() => import('../pages/ExcelRead'));
 const ReactCSVRead = lazy(() => import('../pages/ReactCSVReaderDemo'));
 
-const ColumnChart = lazy(() => import('../pages/ColumnChart'));
+const BarChart = lazy(() => import('../pages/BarChart'));
 
 const AuthorisedApp = () => {
   return (
@@ -46,7 +46,7 @@ const AuthorisedApp = () => {
             />
             <Route exact path="/componets/map" component={MapDemo} />
 
-            <Route exact path="/charts/column-chart" component={ColumnChart} />
+            <Route exact path="/charts/bar-chart" component={BarChart} />
 
             <Route exact path="/reader/excel-read" component={ExcelRead} />
             <Route

@@ -8,6 +8,7 @@ const ReactCSVReader = () => {
   const [col, setCol] = useState([]);
   const [row, setRow] = useState([]);
   const handleForce = (data, fileInfo) => {
+    // eslint-disable-next-line no-console
     console.log(fileInfo);
     const colData = Object.keys(data[0]).map((c) => ({
       accessor: c,

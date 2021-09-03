@@ -13,23 +13,40 @@ import {
   CardBody,
   CardTitle,
 } from 'reactstrap';
+import GoogleLogin from 'react-google-login';
 import { useAuth } from '../hooks/useAuth';
 import { setItemInStorage } from '../utils/helper';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const clientId = process.env.REACT_APP_GOOGLE_CLIENT_KEY;
   const history = useHistory();
   const auth = useAuth();
-  const onLoginClick = (e) => {
-    e.preventDefault();
+
+  const onLoginClick = (e, googleData) => {
+    if (!e) {
+      setItemInStorage('user', {
+        email: googleData.profileObj?.email,
+        name: googleData.profileObj?.name,
+        profileURL: googleData.profileObj?.imageUrl,
+      });
+    } else {
+      e.preventDefault();
+      setItemInStorage('user', {
+        email,
+      });
+    }
     auth.login();
-    setItemInStorage('user', {
-      email,
-    });
     history.push('/');
   };
+
+  const responseGoogle = (response) => {
+    // eslint-disable-next-line no-console
+    console.log(response);
+    onLoginClick(false, response);
+  };
+
   return (
     <Container>
       <Row className="justify-content-center align-items-center h-100vh">
@@ -64,7 +81,24 @@ const Login = () => {
                     required
                   />
                 </FormGroup>
-                <Button color="primary mt-2">Login</Button>
+                <Button color="primary mr-2">Login</Button>
+                <GoogleLogin
+                  clientId={clientId}
+                  render={(renderProps) => (
+                    <Button
+                      color="primary"
+                      onClick={renderProps.onClick}
+                      disabled={renderProps.disabled}
+                    >
+                      Login with google
+                    </Button>
+                  )}
+                  // buttonText="Login with google"
+                  onSuccess={responseGoogle}
+                  onFailure={responseGoogle}
+                  cookiePolicy="single_host_origin"
+                  // isSignedIn
+                />
               </Form>
             </CardBody>
           </Card>

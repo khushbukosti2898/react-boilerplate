@@ -14,6 +14,6 @@ const routes = {
   '/reader/react-csv-reader': 'React CSV Reader',
 
   '/charts': 'Charts',
-  '/charts/column-chart': 'Column Chart',
+  '/charts/bar-chart': 'Bar Chart',
 };
 export default routes;

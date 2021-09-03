@@ -1,4 +1,9 @@
-import { faTachometerAlt, faCog } from '@fortawesome/free-solid-svg-icons';
+import {
+  faTachometerAlt,
+  faCog,
+  faChartArea,
+  faBookReader,
+} from '@fortawesome/free-solid-svg-icons';
 
 const getMenuOptions = () => {
   return [
@@ -30,17 +35,15 @@ const getMenuOptions = () => {
       id: '3',
       lable: 'Charts',
       value: '/charts',
-      icon: faCog,
+      icon: faChartArea,
       hasSubMenu: true,
-      subMenuOptions: [
-        { lable: 'Column Chart', value: '/charts/column-chart' },
-      ],
+      subMenuOptions: [{ lable: 'Bar Chart', value: '/charts/bar-chart' }],
     },
     {
       id: '4',
       lable: 'File Reader',
       value: '/reader',
-      icon: faCog,
+      icon: faBookReader,
       hasSubMenu: true,
       subMenuOptions: [
         { lable: 'Excel Read', value: '/reader/excel-read' },

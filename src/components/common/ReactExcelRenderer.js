@@ -14,6 +14,7 @@ const ExcelRead = () => {
     // just pass the fileObj as parameter
     ExcelRenderer(fileObj, (err, resp) => {
       if (err) {
+        // eslint-disable-next-line no-console
         console.log(err);
       } else {
         const columns = [
@@ -25,15 +26,15 @@ const ExcelRead = () => {
           { Header: 'mmof', name: 'mmof', accessor: 'mmof' },
           { Header: 'pds', name: 'pds', accessor: 'pds' },
         ];
-        const rowss = resp.rows.map((ro) => ({
+        const modifiedRows = resp.rows.map((ro) => ({
           iRely: ro[1],
           mmof: ro[2],
           pds: ro[3],
         }));
         setDataLoaded(true);
         setCols(columns);
-        rowss.splice(0, 2);
-        setRows(rowss);
+        modifiedRows.splice(0, 2);
+        setRows(modifiedRows);
       }
     });
   };

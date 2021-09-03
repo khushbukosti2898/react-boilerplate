@@ -1,18 +1,19 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
-const ColumnChart = () => {
+const BarChart = ({ data, text }) => {
   const options = {
     chart: {
       type: 'spline',
     },
     title: {
-      text: 'My chart',
+      text,
     },
     series: [
       {
-        data: [1, 2, 1, 4, 3, 6],
+        data,
       },
     ],
   };
@@ -23,4 +24,4 @@ const ColumnChart = () => {
   );
 };
 
-export default ColumnChart;
+export default BarChart;

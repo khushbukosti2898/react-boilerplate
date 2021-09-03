@@ -46,7 +46,7 @@ const MenuBar = ({ collapseToggle }) => {
   return (
     <div className="left-col custom-shadow">
       <div className="logo-main mb-3">
-        <img className="ml-3" src={logo} alt="logo" title="FlashPoint" />
+        <img src={logo} alt="logo" title="FlashPoint" />
         <span className="close-icon">
           <FontAwesomeIcon
             icon={faTimes}
@@ -80,7 +80,7 @@ const MenuBar = ({ collapseToggle }) => {
                       className="list-icon"
                     />
                     <span>{menuOption.lable}</span>
-                    <span className="m-auto">
+                    <span className="ml-auto">
                       <FontAwesomeIcon
                         icon={dropdownOpen[key] ? faAngleDown : faAngleUp}
                         className="icon-action fs-16"

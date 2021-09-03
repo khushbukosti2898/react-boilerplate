@@ -1,5 +1,7 @@
 import React from 'react';
 
+import moment from 'moment';
+
 export const getItemFromStorage = (key) => {
   const item = window.localStorage.getItem(key);
   return item ? JSON.parse(item) : null;
@@ -77,4 +79,80 @@ export const listNoRecord = (
 
 export const getFileStorageBaseUrl = () => {
   return 'https://thumbs.preview.com';
+};
+
+const hourLabels = () => {
+  const hoursPerDay = 24;
+  const time = [];
+  let formattedTime;
+  for (let i = 0; i < hoursPerDay; i++) {
+    const cuurentDay = moment().startOf('d');
+    formattedTime = cuurentDay.add(i, 'hours').format('HH:mm');
+    time.push(formattedTime);
+  }
+  return time;
+};
+
+const dateLabels = (start, end, format) => {
+  const time = [];
+  for (
+    let i = moment(start).format();
+    i < end;
+    i = moment(i).add(1, 'day').format()
+  ) {
+    const formattedTime = moment(i).format(format || 'lll');
+    time.push(formattedTime);
+  }
+  return time;
+};
+
+export const monthLabels = () => {
+  const dayPerWeek = 12;
+  const time = [];
+  for (let i = 0; i < dayPerWeek; i++) {
+    const fistDayOfYear = moment().subtract(1, 'year').add(1, 'month');
+    time.push(fistDayOfYear.add(i, 'M').format('MMM, YYYY'));
+  }
+  return time;
+};
+
+export const timePeriodValue = (type) => {
+  let labels = [];
+  let startTime = null;
+  let endTime = null;
+  const startDate = moment().startOf('day');
+  switch (type) {
+    case 'yesterday':
+      labels = hourLabels();
+      startTime = moment().subtract(1, 'd').startOf('day').utc().format();
+      endTime = moment().subtract(1, 'd').endOf('day').utc().format();
+      break;
+    case 'today':
+      labels = hourLabels();
+      startTime = moment().startOf('day').utc().format();
+      endTime = moment().endOf('day').utc().format();
+      break;
+    case 'week':
+      endTime = startDate.utc().format();
+      startTime = startDate.subtract(1, 'week').utc().format();
+      labels = dateLabels(startTime, endTime, 'ddd, DD MMM');
+      break;
+    case 'month':
+      endTime = startDate.utc().format();
+      startTime = startDate.subtract(1, 'month').utc().format();
+      labels = dateLabels(startTime, endTime, 'DD MMM');
+      break;
+    case 'year':
+      labels = monthLabels();
+      endTime = startDate.utc().format();
+      startTime = startDate.subtract(1, 'year').utc().format();
+      break;
+    default:
+      break;
+  }
+  return { labels, startTime, endTime };
+};
+
+export const checkDateInPeriod = (date) => {
+  return moment(date).diff(moment(), 'days');
 };

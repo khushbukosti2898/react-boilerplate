@@ -13,8 +13,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../../hooks/useAuth';
-import { removeItemFromStorage } from '../../utils/helper';
-import logo from '../../assests/images/logo.svg';
+import { getItemFromStorage, removeItemFromStorage } from '../../utils/helper';
 import connectTheme from '../common/connectTheme';
 
 const Header = ({ collapseToggle, toggleTheme, theme }) => {
@@ -85,7 +84,10 @@ const Header = ({ collapseToggle, toggleTheme, theme }) => {
               d-flex cursor-pointer"
             >
               <span className="mr-2 profile-pic">
-                <img src={logo} alt="profile_pic" />
+                <img
+                  src={getItemFromStorage('user')?.profileURL}
+                  alt="profile_pic"
+                />
               </span>
               <span className="profile-title">{loggedInUserName}</span>
               <span className="ml-3 d-flex" />
