@@ -12,6 +12,7 @@ const CustomTable = lazy(() => import('../pages/Table'));
 const ReactSelectDemo = lazy(() => import('../pages/ReactSelect'));
 const ReactDatePickerDemo = lazy(() => import('../pages/ReactDatePicker'));
 const MapDemo = lazy(() => import('../pages/Map'));
+const ReduxCounterDemo = lazy(() => import('../pages/Counter'));
 
 const ExcelRead = lazy(() => import('../pages/ExcelRead'));
 const ReactCSVRead = lazy(() => import('../pages/ReactCSVReaderDemo'));
@@ -54,6 +55,7 @@ const AuthorisedApp = () => {
               path="/reader/react-csv-reader"
               component={ReactCSVRead}
             />
+            <Route exact path="/redux-counter" component={ReduxCounterDemo} />
             <Route path="*" component={NoMatch} />
           </Switch>
         </Suspense>

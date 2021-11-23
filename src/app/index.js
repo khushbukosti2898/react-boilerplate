@@ -1,7 +1,9 @@
 import React, { Suspense } from 'react';
+import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { AuthProvider, useAuth } from '../hooks/useAuth';
+import store from '../store';
 
 const AuthenticatedApp = React.lazy(() => import('./AuthorisedApp'));
 const UnauthenticatedApp = React.lazy(() => import('./UnAuthorisedApp'));
@@ -27,12 +29,16 @@ const App = () => {
   );
 };
 
+const globalStore = store();
+
 const AppWithProvider = () => {
   return (
     <Router>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
+      <Provider store={globalStore}>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </Provider>
     </Router>
   );
 };

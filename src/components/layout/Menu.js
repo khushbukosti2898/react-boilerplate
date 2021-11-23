@@ -3,6 +3,7 @@ import {
   faCog,
   faChartArea,
   faBookReader,
+  faSortNumericDown,
 } from '@fortawesome/free-solid-svg-icons';
 
 const getMenuOptions = () => {
@@ -49,6 +50,13 @@ const getMenuOptions = () => {
         { lable: 'Excel Read', value: '/reader/excel-read' },
         { lable: 'React CSV Reader', value: '/reader/react-csv-reader' },
       ],
+    },
+    {
+      id: '5',
+      lable: 'Counter Redux Demo',
+      value: '/redux-counter',
+      hasSubMenu: false,
+      icon: faSortNumericDown,
     },
   ];
 };
