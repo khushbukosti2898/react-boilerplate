@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import { Col, Row } from 'reactstrap';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import MenuHeader from '../components/layout/MenuHeader';
 import {
   decreaseCount,
@@ -10,23 +10,17 @@ import {
   resetCounter,
 } from '../actions';
 
-function Counter(props) {
-  const {
-    counter,
-    dispatchIncCount,
-    dispatchDecCount,
-    dispatchReset,
-    dispatchFetchArticleDetails,
-    // articleList,
-  } = props;
+function Counter() {
+  const dispatch = useDispatch();
+  const counter = useSelector((state) => state.counterReducer.count);
   const [value, setValue] = useState(1);
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    dispatchFetchArticleDetails().then((response) => {
+    dispatch(fetchArticleDetails()).then((response) => {
       setList(response);
     });
-  }, [dispatchFetchArticleDetails]);
+  }, [dispatch]);
 
   return (
     <>
@@ -49,14 +43,22 @@ function Counter(props) {
         <Col>{`Counter : ${counter}`}</Col>
       </Row>
       <br />
-      <input type="button" value="+" onClick={() => dispatchIncCount(value)} />
+      <input
+        type="button"
+        value="+"
+        onClick={() => dispatch(increaseCount(value))}
+      />
       <input
         type="button"
         className="mx-2"
         value="-"
-        onClick={() => dispatchDecCount(value)}
+        onClick={() => dispatch(decreaseCount(value))}
       />
-      <input type="button" value="Reset to 0" onClick={() => dispatchReset()} />
+      <input
+        type="button"
+        value="Reset to 0"
+        onClick={() => dispatch(resetCounter())}
+      />
 
       <div className="mt-4">
         <h5>List of users(using dispatch API call)</h5>
@@ -71,16 +73,4 @@ function Counter(props) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  counter: state.counterReducer.count,
-  articleList: state.articleReducer.articleList,
-});
-
-const mapDispatchToProps = (disapatch) => ({
-  dispatchIncCount: (value) => disapatch(increaseCount(value)),
-  dispatchDecCount: (value) => disapatch(decreaseCount(value)),
-  dispatchReset: () => disapatch(resetCounter()),
-  dispatchFetchArticleDetails: () => disapatch(fetchArticleDetails()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default Counter;
