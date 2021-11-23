@@ -13,6 +13,7 @@ import {
 function Counter() {
   const dispatch = useDispatch();
   const counter = useSelector((state) => state.counterReducer.count);
+  const loading = useSelector((state) => state.articleReducer.loading);
   const [value, setValue] = useState(1);
   const [list, setList] = useState([]);
 
@@ -62,12 +63,21 @@ function Counter() {
 
       <div className="mt-4">
         <h5>List of users(using dispatch API call)</h5>
-        <ul>
-          {list.length &&
-            list.map((li) => {
-              return <li key={li.id}>{`${li.name} - ${li.email}`}</li>;
-            })}
-        </ul>
+        {loading ? (
+          <p>loading...</p>
+        ) : (
+          <ul>
+            {list.length ? (
+              list.length &&
+              list.map((li) => {
+                return <li key={li.id}>{`${li.name} - ${li.email}`}</li>;
+              })
+            ) : (
+              <p>No user found</p>
+            )}
+            {}
+          </ul>
+        )}
       </div>
     </>
   );

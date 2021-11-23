@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ARTICLELIST, DECREASE, INCREASE, RESET } from './actionTypes';
+import { ARTICLELIST, DECREASE, INCREASE, RESET, LOADING } from './actionTypes';
 
 export const increaseCount = (payload) => ({
   type: INCREASE,
@@ -21,12 +21,19 @@ export const setArticleDetails = (data) => ({
   payload: data,
 });
 
+export const loading = (data) => ({
+  type: LOADING,
+  payload: data,
+});
+
 export const fetchArticleDetails = () => {
   return (dispatch) => {
+    dispatch(loading(true));
     return axios
       .get('http://jsonplaceholder.typicode.com/users')
       .then(({ data }) => {
         dispatch(setArticleDetails(data));
+        dispatch(loading(false));
         return data;
       });
   };
