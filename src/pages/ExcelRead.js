@@ -1,17 +1,17 @@
 import React from 'react';
 import { Row } from 'reactstrap';
-import ColumnChart from '../components/common/ColumnChart';
+import ExcelRead from '../components/common/ReactExcelRenderer';
 import MenuHeader from '../components/layout/MenuHeader';
 
-function Breadcrumb() {
+function ExcelReadDemo() {
   return (
     <>
-      <MenuHeader title="Column Chart" />
+      <MenuHeader title="Excel Read" />
       <Row className="bg-white pt-4">
-        <ColumnChart />
+        <ExcelRead />
       </Row>
     </>
   );
 }
 
-export default Breadcrumb;
+export default ExcelReadDemo;

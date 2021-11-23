@@ -1,4 +1,10 @@
-import { faTachometerAlt, faCog } from '@fortawesome/free-solid-svg-icons';
+import {
+  faTachometerAlt,
+  faCog,
+  faChartArea,
+  faBookReader,
+  faSortNumericDown,
+} from '@fortawesome/free-solid-svg-icons';
 
 const getMenuOptions = () => {
   return [
@@ -20,19 +26,37 @@ const getMenuOptions = () => {
         { lable: 'Breadcrumbs', value: '/componets/breadcrumbs' },
         { lable: 'Buttons', value: '/componets/buttons' },
         { lable: 'React Select', value: '/componets/react-select' },
+        { lable: 'React Datepicker', value: '/componets/react-datepicker' },
         { lable: 'Toast', value: '/componets/toast' },
         { lable: 'Table', value: '/componets/custom-table' },
+        { lable: 'Map', value: '/componets/map' },
       ],
     },
     {
       id: '3',
       lable: 'Charts',
       value: '/charts',
-      icon: faCog,
+      icon: faChartArea,
+      hasSubMenu: true,
+      subMenuOptions: [{ lable: 'Bar Chart', value: '/charts/bar-chart' }],
+    },
+    {
+      id: '4',
+      lable: 'File Reader',
+      value: '/reader',
+      icon: faBookReader,
       hasSubMenu: true,
       subMenuOptions: [
-        { lable: 'Column Chart', value: '/charts/column-chart' },
+        { lable: 'Excel Read', value: '/reader/excel-read' },
+        { lable: 'React CSV Reader', value: '/reader/react-csv-reader' },
       ],
+    },
+    {
+      id: '5',
+      lable: 'Counter Redux Demo',
+      value: '/redux-counter',
+      hasSubMenu: false,
+      icon: faSortNumericDown,
     },
   ];
 };

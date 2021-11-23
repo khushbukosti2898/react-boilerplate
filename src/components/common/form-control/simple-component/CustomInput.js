@@ -154,6 +154,7 @@ const CustomInput = ({
             onChange={(e) => onChangeHandler(e, onChange)}
             onBlur={(e) => onValidationChange(e, validationHandler)}
             data-testid={dataTestId}
+            autoComplete="off"
           />
           {appendIcon && (
             <InputGroupAddon addonType="append">

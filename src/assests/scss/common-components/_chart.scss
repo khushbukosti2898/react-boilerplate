@@ -1,0 +1,33 @@
+.chart-container {
+    // background-color: $color-primary2;
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    justify-content: space-around;
+    padding: 15px;
+
+    .chart {
+        display: flex;
+        height: 250px;
+
+        .pie-chart,
+        .bar-chart,
+        .line-chart,
+        .doughnut-chart {
+            align-self: center;
+            max-height: 250px;
+        }
+    }
+
+    .custom-select {
+        font-size: 14px;
+        min-width: 60px;
+        padding: 5px;
+        padding-right: 20px;
+    }
+
+
+    &:hover {
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15) !important;
+    }
+}

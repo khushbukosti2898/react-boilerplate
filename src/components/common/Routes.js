@@ -7,8 +7,13 @@ const routes = {
   '/componets/toast': 'Toast',
   '/componets/custom-table': 'Table',
   '/componets/react-select': 'React Select',
+  '/componets/react-datepicker': 'React Date Picker',
+  '/componets/map': 'Map',
+
+  '/reader/excel-read': 'Excel Read',
+  '/reader/react-csv-reader': 'React CSV Reader',
 
   '/charts': 'Charts',
-  '/charts/column-chart': 'Column Chart',
+  '/charts/bar-chart': 'Bar Chart',
 };
 export default routes;

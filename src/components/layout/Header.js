@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /* eslint-disable react/jsx-wrap-multilines */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
@@ -14,8 +13,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../../hooks/useAuth';
-import { removeItemFromStorage } from '../../utils/helper';
-import logo from '../../assests/images/logo.svg';
+import { getItemFromStorage, removeItemFromStorage } from '../../utils/helper';
 import connectTheme from '../common/connectTheme';
 
 const Header = ({ collapseToggle, toggleTheme, theme }) => {
@@ -61,6 +59,18 @@ const Header = ({ collapseToggle, toggleTheme, theme }) => {
             </label>
             Orange
           </div>
+          <div className="d-flex">
+            <select onChange={(e) => window.doGTranslate(e.target.value)}>
+              <option value="">Select Language</option>
+              <option value="en|af">Afrikaans</option>
+              <option value="en|en">English</option>
+              <option value="en|fr">French</option>
+              <option value="en|de">German</option>
+              <option value="en|el">Greek</option>
+              <option value="en|hi">Hindi</option>
+              <option value="en|ur">Urdu</option>
+            </select>
+          </div>
           <Dropdown
             isOpen={dropdownOpen}
             toggle={toggle}
@@ -74,7 +84,10 @@ const Header = ({ collapseToggle, toggleTheme, theme }) => {
               d-flex cursor-pointer"
             >
               <span className="mr-2 profile-pic">
-                <img src={logo} alt="profile_pic" />
+                <img
+                  src={getItemFromStorage('user')?.profileURL}
+                  alt="profile_pic"
+                />
               </span>
               <span className="profile-title">{loggedInUserName}</span>
               <span className="ml-3 d-flex" />
