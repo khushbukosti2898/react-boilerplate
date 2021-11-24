@@ -29,6 +29,7 @@ const Header = ({ collapseToggle, toggleTheme, theme }) => {
   };
   const loggedInUser = user.authUser;
   const loggedInUserName = loggedInUser && loggedInUser.fullName;
+  const profileURL = getItemFromStorage('user')?.profileURL;
   return (
     <div className="top-nav custom-shadow">
       <Row className="justify-content-between">
@@ -84,10 +85,7 @@ const Header = ({ collapseToggle, toggleTheme, theme }) => {
               d-flex cursor-pointer"
             >
               <span className="mr-2 profile-pic">
-                <img
-                  src={getItemFromStorage('user')?.profileURL}
-                  alt="profile_pic"
-                />
+                <img src={profileURL} alt="profile_pic" />
               </span>
               <span className="profile-title">{loggedInUserName}</span>
               <span className="ml-3 d-flex" />

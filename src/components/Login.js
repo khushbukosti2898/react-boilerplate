@@ -16,6 +16,7 @@ import {
 import GoogleLogin from 'react-google-login';
 import { useAuth } from '../hooks/useAuth';
 import { setItemInStorage } from '../utils/helper';
+import avatar from '../assests/images/avatar.png';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -35,6 +36,7 @@ const Login = () => {
       e.preventDefault();
       setItemInStorage('user', {
         email,
+        profileURL: avatar,
       });
     }
     auth.login();
